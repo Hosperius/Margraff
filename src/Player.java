@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Player {
 
+    Gui gui = new Gui();
+
     private int maxHealth = 200;
     private int health = 200;
 
@@ -73,34 +75,31 @@ public class Player {
         this.elderKnowledge = elderKnowledge;
     }
 
-    void printHealth () {
+    String printHealth () {
         if (health < (maxHealth/2)) {
-            System.out.println("Watchout " + nick + " only " + health + " HP left!!!");
+            return "Watchout " + nick + " only " + health + " HP left!!!\n";
         } else if (health == maxHealth){
-            System.out.println("You have a full health: " + health + " HP.");
-        }
-        else{
-            System.out.println("You have " +health+ " HP.");
+            return "You have a full health: " + health + " HP.\n";
+        } else{
+            return "You have " +health+ " HP.\n";
         }
     }
 
     void makeNick() {
-        System.out.println("What is yore name ?");
-        nick = scanner.nextLine();
-        System.out.println("Let it be. You're name is: " + nick);
+        gui.wyswietl("What is yore name ?");
+        nick = gui.pobierz();
+        gui.wyswietl("Let it be. You're name is: " + nick);
     }
 
-    void damageHP (int damage) {
+    String damageHP (int damage) {
         if((health - damage)>0) {
             health -= damage;
-            System.out.println("You took " + damage + " damage!");
-            System.out.println("Youre HP is " + health);
+            return  "You took " + damage + " damage! \nYoure HP is " + health ;
         }
         else {
             health = 0;
-            System.out.println("You took " + damage + " damage!");
-            System.out.println("Youre HP is " + health + ". You are DEAD!");
             alive = false;
+            return "You took " + damage + " damage! \nYoure HP is " + health + ". You are DEAD!" ;
         }
     }
 

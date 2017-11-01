@@ -11,16 +11,18 @@ public class Game {
         gui.setTitle("Margraff Game!");
 
         Player player = new Player();
-        player.getNick();
-        player.makeNick();
 
-        player.ChooseRace();
-        player.ChooseClas();
-
-        player.printHealth();
-        player.damageHP(20);
-        player.printHealth();
-        player.damageHP(300);
+//        player.getNick();
+//        player.makeNick();
+//
+//        player.ChooseRace();
+//        player.ChooseClas();
+//
+//        player.printHealth();
+//        player.damageHP(20);
+//        player.printHealth();
+//        player.damageHP(300);
 
     }
+
 }
